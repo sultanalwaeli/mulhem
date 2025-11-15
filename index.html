@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>أكاديمية ملهم التعليمية – استمارة تسجيل المعلمين</title>
+
+  <!-- خط عربي مناسب -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #7b3fe4;
+      --primary-dark: #4c2797;
+      --accent: #ff6fb5;
+      --accent-soft: #ffe5f2;
+      --bg: #060818;
+      --bg-soft: #0c1024;
+      --card-bg: rgba(14, 17, 40, 0.92);
+      --border-soft: rgba(164, 136, 255, 0.45);
+      --text-main: #f7f4ff;
+      --text-muted: #c4c0e6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Tajawal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a1030 0, #060818 45%, #050612 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    /* خلفية ديناميكية خفيفة */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(184, 115, 255, 0.18), transparent 60%),
+        radial-gradient(circle at 90% 80%, rgba(255, 111, 181, 0.18), transparent 55%);
+      opacity: 0.85;
+      pointer-events: none;
+      z-index: -1;
+      animation: glowMove 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowMove {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(12px, -18px, 0);
+      }
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 1180px;
+      padding: 18px 14px 28px;
+    }
+
+    header {
+      border-radius: 24px;
+      padding: 16px 18px 18px;
+      background: linear-gradient(135deg, rgba(123, 63, 228, 0.9), rgba(178, 57, 201, 0.95));
+      box-shadow: 0 18px 35px rgba(16, 5, 44, 0.7);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset-inline-start: -40px;
+      bottom: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 60%);
+      opacity: 0.7;
+      transform: rotate(-10deg);
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo-box {
+      flex-shrink: 0;
+      background: rgba(5, 10, 30, 0.18);
+      border-radius: 24px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .logo-box img {
+      max-height: 74px;
+      width: auto;
+      display: block;
+    }
+
+    .title-box h1 {
+      margin: 0 0 4px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .title-box p {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.96;
+    }
+
+    main {
+      margin-top: 8px;
+    }
+
+    .content-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 22px 18px 24px;
+      border: 1px solid var(--border-soft);
+      box-shadow:
+        0 20px 45px rgba(2, 4, 24, 0.95),
+        0 0 0 1px rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-card::before {
+      content: "";
+      position: absolute;
+      inset-inline-end: -120px;
+      top: -120px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(123, 63, 228, 0.4), transparent 65%);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .content-header {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px 5px;
+      border-radius: 999px;
+      background: rgba(241, 233, 255, 0.08);
+      color: #f6edff;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      font-weight: 500;
+      border: 1px solid rgba(209, 196, 255, 0.45);
+    }
+
+    .badge span {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .intro-text {
+      border-right: 3px solid rgba(255, 255, 255, 0.12);
+      padding-right: 10px;
+    }
+
+    .intro-text h2 {
+      margin: 0 0 4px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fdfbff;
+    }
+
+    .intro-text p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #d5d2ff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-icon {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(255, 111, 181, 0.8);
+    }
+
+    .form-frame {
+      margin-top: 14px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(160, 145, 255, 0.55);
+      background: radial-gradient(circle at top, #1e193f 0, #0c1024 70%);
+      position: relative;
+    }
+
+    .form-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 35%, transparent 65%, rgba(255, 255, 255, 0.04));
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .form-frame iframe {
+      width: 100%;
+      min-height: 950px;
+      border: none;
+    }
+
+    footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #a5a1d5;
+    }
+
+    footer strong {
+      color: #e3ddff;
+    }
+
+    /* استجابة للشاشات الأصغر */
+    @media (max-width: 900px) {
+      .header-inner {
+        gap: 14px;
+      }
+      .title-box h1 {
+        font-size: 1.5rem;
+      }
+      .content-card {
+        padding: 18px 14px 20px;
+      }
+      .form-frame iframe {
+        min-height: 1050px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 14px 12px 16px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-box img {
+        max-height: 60px;
+      }
+
+      .intro-text {
+        border-right: none;
+        border-top: 2px solid rgba(255, 255, 255, 0.08);
+        padding-right: 0;
+        padding-top: 8px;
+        margin-top: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <div class="logo-box">
+          <img src="https://g.top4top.io/p_3606uz6o01.png" alt="شعار أكاديمية ملهم التعليمية" />
+        </div>
+        <div class="title-box">
+          <h1>أكاديمية ملهم التعليمية</h1>
+          <p>بوابة تسجيل المعلمين المختارين للانضمام إلى الفريق التعليمي للأكاديمية.</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="content-card">
+        <div class="content-header">
+          <div class="badge">
+            <span>●</span>
+            نموذج داخلي لنخبة المعلمين
+          </div>
+          <div class="intro-text">
+            <h2>مرحبًا بكم في انطلاقة ملهمة</h2>
+            <p>
+              نرجو منكم تعبئة بياناتكم بدقة، حتى نتمكن من تنظيم الجداول، وتوزيع المسارات
+              التعليمية، وتهيئة انطلاقة احترافية تليق بكم وبالطلبة الذين سنخدمهم معًا.
+            </p>
+          </div>
+          <div class="note">
+            <div class="note-icon"></div>
+            <span>جميع البيانات سرية وتُستخدم فقط لتنظيم العمل داخل أكاديمية ملهم التعليمية.</span>
+          </div>
+        </div>
+
+        <div class="form-frame">
+          <!-- Google Form -->
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSe8Q713my0B5IVEQdJ09Lhu2UwlV9PMykAPU08k7XdNjtXu1g/viewform?embedded=true"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      جميع الحقوق محفوظة &copy;
+      <strong>أكاديمية ملهم التعليمية</strong>
+    </footer>
+  </div>
+</body>
+</html>
+
