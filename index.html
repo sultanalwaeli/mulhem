@@ -2,344 +2,1828 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>أكاديمية ملهم التعليمية – استمارة تسجيل المعلمين</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أكاديمية ملهم التعليمية - منصة تعليمية ملهمة</title>
+  <meta name="description" content="أكاديمية ملهم التعليمية - منصة تعليمية نوعية تقدم حصص مباشرة حضورية وأونلاين مع نخبة من أفضل المعلمين" />
 
-  <!-- خط عربي مناسب -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     :root {
-      --primary: #7b3fe4;
-      --primary-dark: #4c2797;
-      --accent: #ff6fb5;
-      --accent-soft: #ffe5f2;
-      --bg: #060818;
-      --bg-soft: #0c1024;
-      --card-bg: rgba(14, 17, 40, 0.92);
-      --border-soft: rgba(164, 136, 255, 0.45);
-      --text-main: #f7f4ff;
-      --text-muted: #c4c0e6;
+      /* ألوان ديناميكية ومتناغمة */
+      --primary: #6a2df3;
+      --primary-dark: #4b1fad;
+      --primary-light: #8a5cf5;
+      --secondary: #ff8a3c;
+      --secondary-light: #ffb37c;
+      --accent: #22b8aa;
+      --accent-light: #5ce0d2;
+      --purple-gradient: linear-gradient(135deg, #6a2df3, #8a5cf5);
+      --orange-gradient: linear-gradient(135deg, #ff8a3c, #ffb37c);
+      --teal-gradient: linear-gradient(135deg, #22b8aa, #5ce0d2);
+      --bg-soft: #f7f4ff;
+      --bg-deep: #1a1034;
+      --text-main: #15162b;
+      --text-light: #5d6680;
+      --white: #ffffff;
+      --radius-lg: 20px;
+      --radius-sm: 12px;
+      --shadow-soft: 0 12px 30px rgba(16, 10, 60, 0.15);
+      --shadow-medium: 0 16px 40px rgba(16, 10, 60, 0.22);
+      --shadow-strong: 0 20px 50px rgba(16, 10, 60, 0.3);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    * {
+    * { 
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: "Tajawal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1a1030 0, #060818 45%, #050612 100%);
+      font-family: 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #ffffff;
       color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    /* خلفية ديناميكية خفيفة */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(184, 115, 255, 0.18), transparent 60%),
-        radial-gradient(circle at 90% 80%, rgba(255, 111, 181, 0.18), transparent 55%);
-      opacity: 0.85;
-      pointer-events: none;
-      z-index: -1;
-      animation: glowMove 14s ease-in-out infinite alternate;
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1200px, 94%);
+      margin: 0 auto;
     }
 
-    @keyframes glowMove {
-      0% {
-        transform: translate3d(0, 0, 0);
-      }
-      100% {
-        transform: translate3d(12px, -18px, 0);
-      }
-    }
-
-    .page-wrapper {
-      width: 100%;
-      max-width: 1180px;
-      padding: 18px 14px 28px;
-    }
-
+    /* ===== الهيدر ===== */
     header {
-      border-radius: 24px;
-      padding: 16px 18px 18px;
-      background: linear-gradient(135deg, rgba(123, 63, 228, 0.9), rgba(178, 57, 201, 0.95));
-      box-shadow: 0 18px 35px rgba(16, 5, 44, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(20, 12, 43, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      transition: var(--transition);
+      padding: 0.5rem 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: var(--transition);
+    }
+
+    .logo-wrap:hover {
+      transform: translateY(-2px);
+    }
+
+    .logo-wrap img {
+      height: 65px;
+      transition: var(--transition);
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+
+    .logo-text span:first-child {
+      font-weight: 800;
+      text-transform: lowercase;
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo-text span:last-child {
+      color: #c6ffe5;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      transition: var(--transition);
       position: relative;
       overflow: hidden;
-      margin-bottom: 18px;
+      font-weight: 600;
     }
 
-    header::after {
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 3px;
+      background: var(--secondary);
+      transition: var(--transition);
+      border-radius: 3px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ===== هيرو ===== */
+    .hero {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(106, 45, 243, 0.4) 0, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 138, 60, 0.3) 0, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(34, 184, 170, 0.2) 0, transparent 50%),
+        linear-gradient(135deg, #1b1035, #2a1a4a);
+      color: #fff;
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
       content: "";
       position: absolute;
-      inset-inline-start: -40px;
-      bottom: -60px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 60%);
-      opacity: 0.7;
-      transform: rotate(-10deg);
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0, transparent 70%);
+      animation: rotate 30s linear infinite;
     }
 
-    .header-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+      gap: 3rem;
       align-items: center;
-      gap: 18px;
+      position: relative;
+      z-index: 2;
     }
 
-    .logo-box {
-      flex-shrink: 0;
-      background: rgba(5, 10, 30, 0.18);
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      animation: pulse 2s infinite;
+      font-weight: 600;
+    }
+
+    @keyframes pulse {
+      0% { 
+        box-shadow: 0 0 0 0 rgba(255, 138, 60, 0.4); 
+        transform: scale(1);
+      }
+      70% { 
+        box-shadow: 0 0 0 10px rgba(255, 138, 60, 0); 
+        transform: scale(1.02);
+      }
+      100% { 
+        box-shadow: 0 0 0 0 rgba(255, 138, 60, 0); 
+        transform: scale(1);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin: 0 0 1rem;
+      line-height: 1.2;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #ffcf87);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      margin: 0.5rem 0 1.5rem;
+      font-size: 1.1rem;
+      color: #f0ecff;
+      max-width: 90%;
+      font-weight: 400;
+    }
+
+    .hero-highlight {
+      margin-top: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      border-radius: 18px;
+      background: rgba(17,10,56,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 1rem;
+      animation: fadeIn 1s ease;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: var(--transition);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--orange-gradient);
+      color: #1b1035;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #f5f1ff;
+      border: 2px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .hero-card {
+      background: rgba(36, 21, 69, 0.7);
       border-radius: 24px;
-      padding: 10px 14px;
+      padding: 2rem;
+      box-shadow: var(--shadow-strong);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(15px);
+      animation: float 6s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+
+    .hero-card ul {
+      margin: 1rem 0 0;
+      padding-right: 1.2rem;
+      font-size: 0.95rem;
+      color: #ece4ff;
+    }
+
+    .hero-card li {
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding-right: 0.5rem;
+    }
+
+    .hero-card li::before {
+      content: '•';
+      color: var(--secondary);
+      font-weight: bold;
+      position: absolute;
+      right: -1rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+      color: #ffcf87;
+      font-weight: 600;
+    }
+
+    /* ===== الأقسام العامة ===== */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin: 0 0 1.2rem;
+      color: var(--primary-dark);
+      position: relative;
+      display: inline-block;
+      font-weight: 800;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: 0;
+      width: 70%;
+      height: 5px;
+      background: var(--orange-gradient);
+      border-radius: 3px;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      margin-right: auto;
+      margin-left: auto;
+      line-height: 1.6;
+    }
+
+    /* ===== المميزات ===== */
+    .features {
+      background: var(--bg-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(106, 45, 243, 0.1) 0, transparent 70%);
+    }
+
+    .features::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 138, 60, 0.1) 0, transparent 70%);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 1.8rem;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      border: 1px solid #e2d9ff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--purple-gradient);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--bg-soft);
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--primary);
+      transition: var(--transition);
     }
 
-    .logo-box img {
-      max-height: 74px;
-      width: auto;
-      display: block;
+    .feature-card:hover .feature-icon {
+      background: var(--purple-gradient);
+      color: white;
+      transform: scale(1.1);
     }
 
-    .title-box h1 {
-      margin: 0 0 4px;
-      font-size: 1.8rem;
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
       font-weight: 700;
     }
 
-    .title-box p {
-      margin: 0;
-      font-size: 0.95rem;
-      opacity: 0.96;
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
-    main {
-      margin-top: 8px;
+    /* ===== المسارات ===== */
+    .tracks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
     }
 
-    .content-card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 22px 18px 24px;
-      border: 1px solid var(--border-soft);
-      box-shadow:
-        0 20px 45px rgba(2, 4, 24, 0.95),
-        0 0 0 1px rgba(255, 255, 255, 0.01);
-      backdrop-filter: blur(14px);
+    .track-card {
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 1.8rem;
+      border: 1px solid #e2d9ff;
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .track-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .track-card::after {
+      content: "";
+      position: absolute;
+      left: -40px;
+      bottom: -40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f3e8ff, transparent 60%);
+      opacity: 0.8;
+    }
+
+    .track-tag {
+      display: inline-block;
+      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: var(--purple-gradient);
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .track-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .track-card ul {
+      margin: 1rem 0 0;
+      padding-right: 1.2rem;
+      font-size: 1rem;
+      color: #424b67;
+    }
+
+    .track-card li {
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding-right: 0.8rem;
+    }
+
+    .track-card li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      right: -1.2rem;
+    }
+
+    /* ===== العروض والبااقات ===== */
+    .offers {
+      background: linear-gradient(135deg, #f7f4ff, #ffffff);
       position: relative;
       overflow: hidden;
     }
 
-    .content-card::before {
+    .offers::before {
       content: "";
       position: absolute;
-      inset-inline-end: -120px;
-      top: -120px;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, rgba(123, 63, 228, 0.4), transparent 65%);
-      opacity: 0.4;
-      pointer-events: none;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(106, 45, 243, 0.1) 0, transparent 70%);
     }
 
-    .content-header {
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
       position: relative;
-      z-index: 1;
-      margin-bottom: 16px;
+      z-index: 2;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px 5px;
-      border-radius: 999px;
-      background: rgba(241, 233, 255, 0.08);
-      color: #f6edff;
-      font-size: 0.8rem;
-      margin-bottom: 8px;
-      font-weight: 500;
-      border: 1px solid rgba(209, 196, 255, 0.45);
+    .offer-card {
+      border-radius: 22px;
+      padding: 2.5rem 2rem;
+      background: #ffffff;
+      border: 1px solid #e3d9ff;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
     }
 
-    .badge span {
+    .offer-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .offer-card.highlight {
+      border-color: #ffb37c;
+      box-shadow: var(--shadow-strong);
+      background: linear-gradient(135deg, #ffffff, #fff5eb);
+      transform: scale(1.03);
+      border-width: 2px;
+    }
+
+    .offer-card.highlight::before {
+      content: 'الأكثر طلباً';
+      position: absolute;
+      top: 25px;
+      left: -35px;
+      background: var(--orange-gradient);
+      color: white;
+      padding: 0.4rem 3rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transform: rotate(-45deg);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      z-index: 3;
+    }
+
+    .offer-tag {
+      font-size: 0.95rem;
+      color: var(--secondary);
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+
+    .offer-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 1rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .price span {
       font-size: 1rem;
-      color: var(--accent);
-    }
-
-    .intro-text {
-      border-right: 3px solid rgba(255, 255, 255, 0.12);
-      padding-right: 10px;
-    }
-
-    .intro-text h2 {
-      margin: 0 0 4px;
-      font-size: 1.25rem;
       font-weight: 600;
-      color: #fdfbff;
+      color: #666b80;
+      display: block;
+      margin-top: 0.3rem;
     }
 
-    .intro-text p {
-      margin: 0;
+    .offer-list {
+      margin: 1rem 0 1.5rem;
+      padding-right: 1.2rem;
+      font-size: 1rem;
+      color: #454b63;
+    }
+
+    .offer-list li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-right: 0.8rem;
+    }
+
+    .offer-list li::before {
+      content: '•';
+      color: var(--secondary);
+      font-weight: bold;
+      position: absolute;
+      right: -1rem;
+    }
+
+    .badge-free {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: rgba(34, 184, 170, 0.15);
+      color: #0f766e;
       font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.7;
+      margin-top: 0.7rem;
+      font-weight: 700;
     }
 
-    .note {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #d5d2ff;
+    /* ===== الجداول ===== */
+    .schedules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .schedule-card {
+      border-radius: var(--radius-lg);
+      background: #fff;
+      border: 1px solid #e3dffa;
+      box-shadow: var(--shadow-soft);
+      padding: 2.2rem 1.8rem;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .schedule-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--teal-gradient);
+    }
+
+    .schedule-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .schedule-card h3 {
+      margin: 0 0 1.5rem;
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      padding-bottom: 0.7rem;
+      border-bottom: 2px solid var(--bg-soft);
+      font-weight: 700;
+    }
+
+    .schedule-card table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .schedule-card th,
+    .schedule-card td {
+      padding: 0.8rem 0.6rem;
+      border-bottom: 1px solid #f0ebff;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    .schedule-card th {
+      background: #f6f2ff;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .schedule-note {
+      font-size: 0.9rem;
+      color: #6a728b;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #e3dffa;
+    }
+
+    /* ===== الفريق ===== */
+    .team {
+      background: var(--bg-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team::before {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 184, 170, 0.1) 0, transparent 70%);
+    }
+
+    .team-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .team-image-container {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-medium);
+      text-align: center;
+      margin-bottom: 3rem;
+      transition: var(--transition);
+    }
+
+    .team-image-container:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .team-image {
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .team-caption {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .team-description {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* ===== نموذج التسجيل ===== */
+    .form-wrapper {
+      border-radius: 26px;
+      padding: 3rem 2.5rem;
+      background: linear-gradient(135deg, #f7f4ff, #ffffff);
+      border: 1px solid #e5dcff;
+      box-shadow: var(--shadow-strong);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-wrapper::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(106, 45, 243, 0.1) 0, transparent 70%);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-group {
+      margin-bottom: 0.8rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.7rem;
+      color: #303452;
+      font-weight: 700;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid #d2c8f3;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+      background: #ffffff;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(106, 45, 243, 0.2);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-footer {
+      margin-top: 2.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #5b6078;
+      position: relative;
+      z-index: 2;
+    }
+
+    .note-transfer {
+      max-width: 500px;
+      background: rgba(106, 45, 243, 0.08);
+      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius-sm);
+      border-right: 4px solid var(--primary);
+    }
+
+    /* ===== الأسئلة الشائعة ===== */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #e2d9ff;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .faq-question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-weight: 700;
+    }
+
+    .faq-question i {
+      color: var(--accent);
+      margin-top: 0.3rem;
+      font-size: 1.3rem;
+    }
+
+    .faq-answer {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== الفوتر ===== */
+    footer {
+      border-top: 1px solid #e5dcff;
+      padding: 3.5rem 0 2.5rem;
+      font-size: 0.95rem;
+      color: #7b7f99;
+      text-align: center;
+      background: linear-gradient(135deg, #140c2b, #1f1440);
+      color: #d7d8ff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(106, 45, 243, 0.1) 0, transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(255, 138, 60, 0.1) 0, transparent 50%);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+      text-align: right;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-logo img {
+      height: 80px;
+      margin-bottom: 1.2rem;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-links h4,
+    .footer-contact h4 {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      position: relative;
+      padding-bottom: 0.7rem;
+      font-weight: 700;
+    }
+
+    .footer-links h4::after,
+    .footer-contact h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-links a {
+      transition: var(--transition);
+      color: #d7d8ff;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+      padding-right: 8px;
+    }
+
+    .footer-contact p {
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 0.7rem;
     }
 
-    .note-icon {
-      width: 7px;
-      height: 7px;
+    .footer-contact i {
+      color: var(--secondary);
+      width: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .social-links a {
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px rgba(255, 111, 181, 0.8);
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1.2rem;
     }
 
-    .form-frame {
-      margin-top: 14px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(160, 145, 255, 0.55);
-      background: radial-gradient(circle at top, #1e193f 0, #0c1024 70%);
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
       position: relative;
+      z-index: 2;
     }
 
-    .form-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 35%, transparent 65%, rgba(255, 255, 255, 0.04));
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-    }
-
-    .form-frame iframe {
-      width: 100%;
-      min-height: 950px;
-      border: none;
-    }
-
-    footer {
-      margin-top: 10px;
-      text-align: center;
-      font-size: 0.78rem;
-      color: #a5a1d5;
-    }
-
-    footer strong {
-      color: #e3ddff;
-    }
-
-    /* استجابة للشاشات الأصغر */
-    @media (max-width: 900px) {
-      .header-inner {
-        gap: 14px;
-      }
-      .title-box h1 {
-        font-size: 1.5rem;
-      }
-      .content-card {
-        padding: 18px 14px 20px;
-      }
-      .form-frame iframe {
-        min-height: 1050px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      header {
-        padding: 14px 12px 16px;
-      }
-
-      .header-inner {
+    /* ===== الوسائط المتجاوبة ===== */
+    @media (max-width: 992px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-card { order: -1; margin-bottom: 3rem; }
+      .nav-links { 
+        display: none; 
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: rgba(20, 12, 43, 0.95);
+        backdrop-filter: blur(15px);
         flex-direction: column;
-        align-items: flex-start;
+        padding: 1rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       }
+      .nav-links.active {
+        display: flex;
+      }
+      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+      .hero { padding-top: 3rem; }
+      section { padding: 4rem 0; }
+    }
 
-      .logo-box img {
-        max-height: 60px;
-      }
+    @media (max-width: 768px) {
+      .hero-cta { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .form-footer { flex-direction: column; text-align: center; }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+      .footer-logo { align-items: center; }
+      .form-wrapper { padding: 2.5rem 1.5rem; }
+      .team-image-container { padding: 1.5rem; }
+    }
 
-      .intro-text {
-        border-right: none;
-        border-top: 2px solid rgba(255, 255, 255, 0.08);
-        padding-right: 0;
-        padding-top: 8px;
-        margin-top: 6px;
-      }
+    @media (max-width: 576px) {
+      .container { width: 92%; }
+      .hero { padding: 3rem 0; }
+      section { padding: 3.5rem 0; }
+      .form-grid { grid-template-columns: 1fr; }
+      .hero-card { padding: 1.8rem 1.5rem; }
+      .offer-card { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <header>
-      <div class="header-inner">
-        <div class="logo-box">
-          <img src="https://g.top4top.io/p_3606uz6o01.png" alt="شعار أكاديمية ملهم التعليمية" />
-        </div>
-        <div class="title-box">
-          <h1>أكاديمية ملهم التعليمية</h1>
-          <p>بوابة تسجيل المعلمين المختارين للانضمام إلى الفريق التعليمي للأكاديمية.</p>
+
+  <!-- ===== الهيدر ===== -->
+  <header>
+    <div class="container nav">
+      <div class="logo-wrap">
+        <img src="https://b.top4top.io/p_3619a8p161.png" alt="شعار أكاديمية ملهم التعليمية" />
+        <div class="logo-text">
+          <span>mulhim educational academy</span>
+          <span>أكاديمية ملهم التعليمية</span>
         </div>
       </div>
-    </header>
+      <nav class="nav-links">
+        <a href="#about">عن الأكاديمية</a>
+        <a href="#features">مميزاتنا</a>
+        <a href="#offers">الباقات والعروض</a>
+        <a href="#schedules">الجداول</a>
+        <a href="#team">فريقنا</a>
+        <a href="#register">تسجيل طالب</a>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
 
-    <main>
-      <div class="content-card">
-        <div class="content-header">
-          <div class="badge">
-            <span>●</span>
-            نموذج داخلي لنخبة المعلمين
-          </div>
-          <div class="intro-text">
-            <h2>مرحبًا بكم في انطلاقة ملهمة</h2>
-            <p>
-              نرجو منكم تعبئة بياناتكم بدقة، حتى نتمكن من تنظيم الجداول، وتوزيع المسارات
-              التعليمية، وتهيئة انطلاقة احترافية تليق بكم وبالطلبة الذين سنخدمهم معًا.
-            </p>
-          </div>
-          <div class="note">
-            <div class="note-icon"></div>
-            <span>جميع البيانات سرية وتُستخدم فقط لتنظيم العمل داخل أكاديمية ملهم التعليمية.</span>
-          </div>
+  <!-- ===== هيرو ===== -->
+  <section class="hero" id="top">
+    <div class="container hero-content">
+      <div>
+        <div class="hero-badge">
+          <i class="fas fa-rocket"></i> الانطلاق الأسبوع القادم · حصص مباشرة + أونلاين
         </div>
-
-        <div class="form-frame">
-          <!-- Google Form -->
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSe8Q713my0B5IVEQdJ09Lhu2UwlV9PMykAPU08k7XdNjtXu1g/viewform?embedded=true"
-            loading="lazy">
-          </iframe>
+        <h1>ملهم… أكاديمية تضع الطالب في مركز المشهد، والمعلم في قمة التأثير.</h1>
+        <p>
+          نطلق أكاديمية ملهم التعليمية لنقدّم تجربة تعلم مختلفة: حصص مباشرة حضورية، وأخرى أونلاين،
+          يقودها نخبة من أفضل معلمي المحافظة، بأسعار واضحة، وباقات محفزة للطلبة الجادين.
+        </p>
+        <div class="hero-highlight">
+          <i class="fas fa-bullseye"></i> <strong>عرض الانطلاقة:</strong> الطالب الذي يسجل في
+          <strong>3 حصص حضورية</strong> يحصل على <strong>الحصة الرابعة مجانًا</strong>.  
+          سعر الحصة الحضورية: <strong>5 ريال</strong> · سعر حصة الأونلاين: <strong>3 ريال</strong>.
+        </div>
+        <div class="hero-cta">
+          <a href="#register" class="btn-primary">
+            <i class="fas fa-user-plus"></i> تسجيل فوري في حصة أو باقة
+          </a>
+          <a href="#offers" class="btn-secondary">
+            <i class="fas fa-gift"></i> استعراض الباقات والعروض
+          </a>
         </div>
       </div>
-    </main>
 
-    <footer>
-      جميع الحقوق محفوظة &copy;
-      <strong>أكاديمية ملهم التعليمية</strong>
-    </footer>
-  </div>
+      <div class="hero-card">
+        <span class="hero-tag"><i class="fas fa-star"></i> ملهم في سطور</span>
+        <h3>أكاديمية خاصة… لكن رسالتها مجتمعية.</h3>
+        <ul>
+          <li>اختيار دقيق للنخبة من المعلمين كما في لوحة الشرف التي أعددتموها.</li>
+          <li>مساران: مباشر حضوري، وعن بُعد أونلاين، مع إمكانية الجمع بينهما.</li>
+          <li>نظام واضح للتسجيل عبر واتساب بعد التحويل على رقم الأكاديمية <strong>95665009</strong>.</li>
+          <li>مرونة في التسجيل: مادة واحدة، عدة مواد، أو باقات كاملة للمتابعة طوال الفصل.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== عن الأكاديمية ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>عن أكاديمية ملهم التعليمية</h2>
+        <p class="section-subtitle">
+          منصة تعليمية نوعية تهدف لرفع مستوى الطلبة في المواد الأساسية، من خلال تعليم عميق، تفاعلي، ومنظم.
+        </p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto; font-size: 1.05rem;">
+        <p style="margin-bottom: 1.5rem;">
+          تقوم فلسفة الأكاديمية على ثلاث ركائز رئيسية:
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div style="background: var(--bg-soft); padding: 1.8rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);">
+            <h3 style="color: var(--primary-dark); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-chalkboard-teacher" style="color: var(--secondary);"></i> معلم ملهم
+            </h3>
+            <p style="color: var(--text-light);">معلم ذو خبرة، حاضر ذهنيًا ومهنيًا، ويمتلك أدوات شرح عصرية.</p>
+          </div>
+          <div style="background: var(--bg-soft); padding: 1.8rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);">
+            <h3 style="color: var(--primary-dark); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-user-graduate" style="color: var(--secondary);"></i> طالب جاد
+            </h3>
+            <p style="color: var(--text-light);">يعرف ماذا يريد، ويحصل على مسار يناسب مستواه وأهدافه.</p>
+          </div>
+          <div style="background: var(--bg-soft); padding: 1.8rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);">
+            <h3 style="color: var(--primary-dark); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-cogs" style="color: var(--secondary);"></i> تنظيم احترافي
+            </h3>
+            <p style="color: var(--text-light);">جداول واضحة، أسعار معلنة، وباقات مدروسة توازن بين الجودة والتكلفة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== المميزات ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>لماذا تختار أكاديمية ملهم؟</h2>
+        <p class="section-subtitle">
+          نقدم لطلابنا تجربة تعليمية فريدة تجمع بين الجودة العالية والمرونة في التعلم
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>فريق تعليمي متميز</h3>
+          <p>نخبة من أفضل المعلمين المؤهلين والمتميزين في تخصصاتهم، يتم اختيارهم بعناية فائقة.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-laptop-house"></i>
+          </div>
+          <h3>تعلم مرن</h3>
+          <p>خيارات متعددة للتعلم تناسب جميع الاحتياجات: حضوري مباشر أو أونلاين عن بُعد.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3>أسعار مناسبة</h3>
+          <p>أسعارنا تنافسية مع عروض وباقات تشجع الطلبة الجادين على الاستمرار في التعلم.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>متابعة مستمرة</h3>
+          <p>نظام متابعة وتقييم مستمر لضمان تقدم الطالب وتحقيق أفضل النتائج التعليمية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== الباقات والعروض ===== -->
+  <section class="offers" id="offers">
+    <div class="container">
+      <div class="section-header">
+        <h2>الباقات والعروض</h2>
+        <p class="section-subtitle">
+          تسعير واضح… مع عروض تحفيزية للطلبة الجادين وأولياء الأمور الباحثين عن قيمة حقيقية.
+        </p>
+      </div>
+
+      <div class="offers-grid">
+        <!-- باقة حضوري -->
+        <div class="offer-card highlight">
+          <div class="offer-tag">الأكثر طلبًا – مسار حضوري</div>
+          <h3>باقة الحضور الذهبي</h3>
+          <p class="price">5 ريال / الحصة <span>حضوري داخل قاعات الأكاديمية</span></p>
+          <ul class="offer-list">
+            <li>عند تسجيل الطالب في <strong>3 حصص حضورية</strong> في نفس الشهر، يحصل على <strong>الحصة الرابعة مجانًا</strong>.</li>
+            <li>مثالي للمواد الحرجة: الرياضيات، الفيزياء، الكيمياء، الأحياء.</li>
+            <li>أعداد محدودة في كل مجموعة لضمان المتابعة الفردية.</li>
+          </ul>
+          <span class="badge-free">🎁 عرض الانطلاقة: 4 حصص بـ 15 ريال بدلاً من 20</span>
+        </div>
+
+        <!-- باقة أونلاين -->
+        <div class="offer-card">
+          <div class="offer-tag">مسار عن بُعد</div>
+          <h3>باقة الأونلاين التفاعلية</h3>
+          <p class="price">3 ريال / الحصة <span>أونلاين عبر منصات معتمدة</span></p>
+          <ul class="offer-list">
+            <li>حصة مباشرة مع المعلم + إمكانية إعادة الشرح إن وُفّر تسجيل.</li>
+            <li>مناسبة للطلبة من خارج الولاية أو أصحاب الجداول المزدحمة.</li>
+            <li>عرض مقترح: <strong>4 حصص أونلاين بـ 10 ريالات</strong> بدلاً من 12.</li>
+          </ul>
+        </div>
+
+        <!-- باقة مشتركة -->
+        <div class="offer-card">
+          <div class="offer-tag">للطلبة الجادين</div>
+          <h3>باقة الدمج (حضوري + أونلاين)</h3>
+          <p class="price">باقة خاصة تبدأ من 14 ريال <span>حسب المزج بين المسارين</span></p>
+          <ul class="offer-list">
+            <li>مثال: 2 حصص حضورية + 2 حصص أونلاين في نفس المادة أو مواد مختلفة.</li>
+            <li>مناسبة للطلبة الذين يرغبون في تمرين إضافي قبل الامتحانات.</li>
+            <li>يتم تصميم الباقة بالاتفاق مع ولي الأمر حسب حاجة الطالب.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== الجداول ===== -->
+  <section id="schedules">
+    <div class="container">
+      <div class="section-header">
+        <h2>الجداول المقترحة للحصص</h2>
+        <p class="section-subtitle">
+          سيتم تحديث هذه الجداول وفق النسخة النهائية التي ستعتمدونها للأسبوع الأول (حضوري + أونلاين).
+        </p>
+      </div>
+
+      <div class="schedules-grid">
+        <!-- جدول الأونلاين -->
+        <div class="schedule-card">
+          <h3>جدول الحصص الأونلاين (عن بُعد)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>اليوم</th>
+                <th>الوقت</th>
+                <th>المادة</th>
+                <th>المعلم</th>
+                <th>الصف</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>الأحد</td>
+                <td>7:00–8:00 م</td>
+                <td>رياضيات</td>
+                <td>عمر بن بطي بن شطيط الغافري</td>
+                <td>الثامن</td>
+              </tr>
+              <tr>
+                <td>الأحد</td>
+                <td>8:00–9:00 م</td>
+                <td>لغة إنجليزية</td>
+                <td>ربيع إبراهيم محمد</td>
+                <td>6–12</td>
+              </tr>
+              <tr>
+                <td>الاثنين</td>
+                <td>8:00–9:00 م</td>
+                <td>فيزياء</td>
+                <td>إبراهيم بن سعيد بن محمد المقبالي</td>
+                <td>9–10</td>
+              </tr>
+              <tr>
+                <td>الثلاثاء</td>
+                <td>4:00–5:00 ع</td>
+                <td>كيمياء (أساسيات)</td>
+                <td>صالح بن علي بن محمد الحاتمي</td>
+                <td>التاسع</td>
+              </tr>
+              <tr>
+                <td>الأربعاء</td>
+                <td>8:00–9:00 م</td>
+                <td>علوم/أحياء</td>
+                <td>خالد بن سعيد بن محمد الكلباني</td>
+                <td>8–12</td>
+              </tr>
+              <tr>
+                <td>الخميس</td>
+                <td>7:00–8:00 م</td>
+                <td>لغة عربية</td>
+                <td>محمود بن حمد بن سالم الغافري</td>
+                <td>السادس</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="schedule-note">
+            * يمكنك استبدال هذا الجدول لاحقًا بنسخة كاملة من جدول الأونلاين الذي أعددناه للمعلمين.
+          </p>
+        </div>
+
+        <!-- جدول الحضوري -->
+        <div class="schedule-card">
+          <h3>جدول الحصص الحضورية (مباشر)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>اليوم</th>
+                <th>الوقت</th>
+                <th>المادة</th>
+                <th>المعلم</th>
+                <th>المسار</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>الجمعة</td>
+                <td>4:30–5:30 ع</td>
+                <td>كيمياء</td>
+                <td>أحمد بن ناصر بن خليفة المعمري</td>
+                <td>حضوري</td>
+              </tr>
+              <tr>
+                <td>السبت</td>
+                <td>9:00–10:00 ص</td>
+                <td>رياضيات – مراجعة</td>
+                <td>محمد بن حامد بن حمود الناصري</td>
+                <td>حضوري</td>
+              </tr>
+              <tr>
+                <td>السبت</td>
+                <td>10:15–11:15 ص</td>
+                <td>لغة إنجليزية – مهارات</td>
+                <td>محمد بن سالم الكلباني</td>
+                <td>حضوري</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="schedule-note">
+            * عدّل الأيام والأوقات والمواد هنا حسب جدول الحضوري الذي سترسله لي لاحقًا.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== الفريق ===== -->
+  <section class="team" id="team">
+    <div class="container team-container">
+      <div class="section-header">
+        <h2>فريق المعلمين</h2>
+        <p class="section-subtitle">
+          نخبة من أفضل المعلمين المؤهلين والمتميزين في تخصصاتهم
+        </p>
+      </div>
+      
+      <div class="team-image-container">
+        <img src="https://b.top4top.io/p_3619156m71.jpeg" alt="فريق معلمي أكاديمية ملهم التعليمية" class="team-image" />
+        <div class="team-caption">
+          فريق معلمي أكاديمية ملهم التعليمية - نخبة من أفضل المعلمين في المحافظة
+        </div>
+      </div>
+      
+      <div class="team-description">
+        <p>نفخر في أكاديمية ملهم بضم نخبة من أفضل المعلمين المؤهلين والمتميزين في تخصصاتهم المختلفة. فريقنا التعليمي يتمتع بخبرات واسعة وأساليب تدريس مبتكرة تهدف إلى إيصال المعلومة للطالب بأفضل الطرق وأكثرها فعالية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== نموذج التسجيل ===== -->
+  <section id="register">
+    <div class="container">
+      <div class="section-header">
+        <h2>تسجيل طالب في حصة أو باقة</h2>
+        <p class="section-subtitle">
+          اختر نوع المسار، الحصة أو الباقة، ثم أكمِل التحويل على رقم الأكاديمية
+          <strong>95665009</strong>، وبعدها يتم إرسال بيانات التسجيل عبر واتساب.
+        </p>
+      </div>
+
+      <div class="form-wrapper">
+        <form id="registrationForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="studentName">اسم الطالب</label>
+              <input type="text" id="studentName" name="studentName" required />
+            </div>
+            <div class="form-group">
+              <label for="grade">الصف / المرحلة</label>
+              <input type="text" id="grade" name="grade" placeholder="مثال: العاشر، 12 علمي…" required />
+            </div>
+            <div class="form-group">
+              <label for="guardianName">اسم ولي الأمر</label>
+              <input type="text" id="guardianName" name="guardianName" required />
+            </div>
+            <div class="form-group">
+              <label for="guardianPhone">رقم ولي الأمر (واتساب)</label>
+              <input type="tel" id="guardianPhone" name="guardianPhone" required />
+            </div>
+
+            <div class="form-group">
+              <label for="track">نوع المسار</label>
+              <select id="track" name="track" required>
+                <option value="">اختر المسار</option>
+                <option value="حضوري">المسار المباشر (حضوري)</option>
+                <option value="عن بُعد">المسار عن بُعد (أونلاين)</option>
+                <option value="كلاهما">الجمع بين المسارين</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="package">نوع التسجيل</label>
+              <select id="package" name="package" required>
+                <option value="">اختر نوع التسجيل</option>
+                <option value="حصة مفردة حضوري">حصة مفردة حضوري (5 ريال)</option>
+                <option value="حصة مفردة أونلاين">حصة مفردة أونلاين (3 ريال)</option>
+                <option value="باقة 4 حضوري (3+1 مجانًا)">باقة 4 حصص حضورية (3+1 مجانًا)</option>
+                <option value="باقة 4 أونلاين مخفضة">باقة 4 حصص أونلاين مخفضة</option>
+                <option value="باقة دمج حضوري + أونلاين">باقة دمج حضوري + أونلاين</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">المادة</label>
+              <select id="subject" name="subject" required>
+                <option value="">اختر المادة</option>
+                <option value="الرياضيات">الرياضيات</option>
+                <option value="الفيزياء">الفيزياء</option>
+                <option value="الكيمياء">الكيمياء</option>
+                <option value="الأحياء">الأحياء</option>
+                <option value="العلوم">العلوم</option>
+                <option value="اللغة الإنجليزية">اللغة الإنجليزية</option>
+                <option value="اللغة العربية">اللغة العربية</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="day">اليوم</label>
+              <select id="day" name="day" required>
+                <option value="">اختر اليوم</option>
+                <option value="الأحد">الأحد</option>
+                <option value="الإثنين">الإثنين</option>
+                <option value="الثلاثاء">الثلاثاء</option>
+                <option value="الأربعاء">الأربعاء</option>
+                <option value="الخميس">الخميس</option>
+                <option value="الجمعة">الجمعة</option>
+                <option value="السبت">السبت</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="time">التوقيت المرغوب</label>
+              <select id="time" name="time" required>
+                <option value="">اختر التوقيت</option>
+                <option value="4:30 عصرًا">4:30 عصرًا</option>
+                <option value="4:00–5:00 عصرًا">4:00–5:00 عصرًا</option>
+                <option value="7:00–8:00 مساءً">7:00–8:00 مساءً</option>
+                <option value="8:00–9:00 مساءً">8:00–9:00 مساءً</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="notes">ملاحظات إضافية (اختياري)</label>
+              <textarea id="notes" name="notes" placeholder="أي تفاصيل خاصة بمستوى الطالب أو نوع المتابعة المطلوبة…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <div class="note-transfer">
+              <i class="fas fa-credit-card"></i> <strong>خطوة الدفع:</strong><br>
+              الرجاء تحويل الرسوم على رقم الأكاديمية
+              <strong>95665009</strong> (حسب الحصة أو الباقة المختارة)،
+              ثم الضغط على الزر بالأسفل لفتح واتساب وإرسال بيانات التسجيل
+              مع <strong>إرفاق إشعار التحويل</strong>.
+            </div>
+
+            <button type="submit" class="btn-primary">
+              <i class="fab fa-whatsapp"></i> إكمال التسجيل عبر واتساب
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== الأسئلة الشائعة ===== -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>الأسئلة الشائعة</h2>
+        <p class="section-subtitle">
+          إجابات على أكثر الأسئلة التي تهم أولياء الأمور والطلاب
+        </p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            كيف يمكنني التسجيل في الأكاديمية؟
+          </div>
+          <div class="faq-answer">
+            يمكنك التسجيل من خلال تعبئة نموذج التسجيل الموجود على الموقع، ثم إكمال عملية الدفع عبر التحويل البنكي إلى رقم الأكاديمية 95665009، وأخيراً إرسال بيانات التسجيل وإشعار التحويل عبر واتساب.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            هل يمكنني تغيير الحصص بعد التسجيل؟
+          </div>
+          <div class="faq-answer">
+            نعم، يمكن تغيير الحصص وفقاً للجدول المتاح وبالتنسيق مع إدارة الأكاديمية، مع مراعاة الشروط والأحكام الخاصة بالتغيير والإلغاء.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            ما الفرق بين الحصص الحضورية والأونلاين؟
+          </div>
+          <div class="faq-answer">
+            الحصص الحضورية تتم في قاعات الأكاديمية مع تفاعل مباشر مع المعلم، بينما الحصص الأونلاين تتم عبر منصات إلكترونية معتمدة مع إمكانية التفاعل المباشر أيضاً، وتناسب من لديهم صعوبة في الحضور للمقر.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-question-circle"></i>
+            هل تقدمون خصومات للطلاب المتفوقين؟
+          </div>
+          <div class="faq-answer">
+            نعم، نقدم خصومات وتسهيلات للطلاب المتفوقين والمتميزين، كما نقدم عروضاً خاصة للطلاب المسجلين في أكثر من مادة أو لأفراد العائلة الواحدة.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="https://b.top4top.io/p_3619a8p161.png" alt="شعار أكاديمية ملهم التعليمية" />
+          <p>أكاديمية ملهم التعليمية - منصة تعليمية نوعية تقدم تجربة تعلم مختلفة تجمع بين الجودة والمرونة.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#about">عن الأكاديمية</a></li>
+            <li><a href="#features">مميزاتنا</a></li>
+            <li><a href="#offers">الباقات والعروض</a></li>
+            <li><a href="#schedules">الجداول</a></li>
+            <li><a href="#team">فريقنا</a></li>
+            <li><a href="#register">تسجيل طالب</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>اتصل بنا</h4>
+          <p><i class="fas fa-phone"></i> 95665009</p>
+          <p><i class="fas fa-envelope"></i> info@mulhim-academy.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> سلطنة عمان، محافظة الداخلية</p>
+          <p><i class="fas fa-clock"></i> الأحد - الخميس: ٤:٠٠ عصراً - ٩:٠٠ مساءً</p>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; <span id="year"></span> أكاديمية ملهم التعليمية – منصة تعليمية خاصة برسالة مجتمعية.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // سنة ديناميكية
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // إرسال البيانات إلى واتساب
+    document.getElementById('registrationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const studentName   = document.getElementById('studentName').value.trim();
+      const grade         = document.getElementById('grade').value.trim();
+      const guardianName  = document.getElementById('guardianName').value.trim();
+      const guardianPhone = document.getElementById('guardianPhone').value.trim();
+      const track         = document.getElementById('track').value;
+      const pkg           = document.getElementById('package').value;
+      const subject       = document.getElementById('subject').value;
+      const day           = document.getElementById('day').value;
+      const time          = document.getElementById('time').value;
+      const notes         = document.getElementById('notes').value.trim();
+
+      const phone = "96895665009"; // كود عمان + رقم الأكاديمية
+
+      let message = `السلام عليكم 👋\nأرغب في تسجيل طالب في أكاديمية ملهم التعليمية:\n\n`;
+      message += `👤 اسم الطالب: ${studentName}\n`;
+      message += `📚 الصف / المرحلة: ${grade}\n`;
+      message += `👨‍👩‍👦 اسم ولي الأمر: ${guardianName}\n`;
+      message += `📱 رقم ولي الأمر (واتساب): ${guardianPhone}\n\n`;
+      message += `🎯 نوع المسار: ${track}\n`;
+      message += `📦 نوع التسجيل / الباقة: ${pkg}\n`;
+      message += `📘 المادة: ${subject}\n`;
+      message += `🗓 اليوم: ${day}\n`;
+      message += `⏰ التوقيت: ${time}\n\n`;
+      message += `💳 تم التحويل على رقم 95665009، وسيتم إرفاق إشعار التحويل.\n`;
+
+      if (notes) {
+        message += `\nملاحظات إضافية:\n${notes}\n`;
+      }
+
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+
+    // تأثير التمرير على الهيدر
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = '#140c2b';
+        header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+      } else {
+        header.style.background = 'rgba(20, 12, 43, 0.95)';
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // قائمة الجوال
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+    });
+
+    // إغلاق القائمة عند النقر على رابط
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 992) {
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+
+    // تأثيرات ظهور العناصر عند التمرير
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // تطبيق تأثيرات الظهور على العناصر
+    document.querySelectorAll('.feature-card, .offer-card, .schedule-card, .faq-item, .team-image-container').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
-
